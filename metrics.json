@@ -1,0 +1,159 @@
+{
+  "ambang": 0.07,
+  "target_recall": 0.99,
+  "aturan_ambang": "biaya minimum 10*FN + FP di validasi",
+  "img_size": 224,
+  "ms_per_citra": 3.33,
+  "epoch_dijalankan": 20,
+  "waktu_latih_menit": 38.1,
+  "duplikat_dihapus": 64,
+  "split": {
+    "train": {
+      "cacat": 3006,
+      "baik": 2300,
+      "total": 5306
+    },
+    "validasi": {
+      "cacat": 752,
+      "baik": 575,
+      "total": 1327
+    },
+    "test bersih": {
+      "cacat": 453,
+      "baik": 198,
+      "total": 651
+    },
+    "test asli": {
+      "cacat": 453,
+      "baik": 262,
+      "total": 715
+    }
+  },
+  "test_bersih": {
+    "ambang": 0.07,
+    "accuracy": 0.9877112135176651,
+    "recall_cacat": 0.9955849889624724,
+    "precision_cacat": 0.986870897155361,
+    "f1": 0.9912087912087912,
+    "fpr": 0.030303030303030304,
+    "roc_auc": 0.9997435725912547,
+    "TP": 451,
+    "FP": 6,
+    "FN": 2,
+    "TN": 192,
+    "biaya_relatif": 26
+  },
+  "test_asli": {
+    "ambang": 0.07,
+    "accuracy": 0.9874125874125874,
+    "recall_cacat": 0.9955849889624724,
+    "precision_cacat": 0.9847161572052402,
+    "f1": 0.9901207464324918,
+    "fpr": 0.026717557251908396,
+    "roc_auc": 0.9997809345668403,
+    "TP": 451,
+    "FP": 7,
+    "FN": 2,
+    "TN": 255,
+    "biaya_relatif": 27
+  },
+  "perbandingan": {
+    "B0 Mayoritas": {
+      "ambang": 0.5,
+      "accuracy": 0.695852534562212,
+      "recall_cacat": 1.0,
+      "precision_cacat": 0.695852534562212,
+      "f1": 0.8206521739130435,
+      "fpr": 1.0,
+      "roc_auc": 0.5,
+      "TP": 453,
+      "FP": 198,
+      "FN": 0,
+      "TN": 0,
+      "biaya_relatif": 198,
+      "parameter": 0
+    },
+    "B1 HOG + LogReg": {
+      "ambang": 0.08,
+      "accuracy": 0.9293394777265745,
+      "recall_cacat": 0.9845474613686535,
+      "precision_cacat": 0.9195876288659793,
+      "f1": 0.9509594882729211,
+      "fpr": 0.19696969696969696,
+      "roc_auc": 0.9895087742769861,
+      "TP": 446,
+      "FP": 39,
+      "FN": 7,
+      "TN": 159,
+      "biaya_relatif": 109,
+      "parameter": 1765
+    },
+    "CNN usulan": {
+      "ambang": 0.07,
+      "accuracy": 0.9877112135176651,
+      "recall_cacat": 0.9955849889624724,
+      "precision_cacat": 0.986870897155361,
+      "f1": 0.9912087912087912,
+      "fpr": 0.030303030303030304,
+      "roc_auc": 0.9997435725912547,
+      "TP": 451,
+      "FP": 6,
+      "FN": 2,
+      "TN": 192,
+      "biaya_relatif": 26,
+      "parameter": 101665
+    },
+    "B2 MobileNetV2": {
+      "ambang": 0.44,
+      "accuracy": 0.9877112135176651,
+      "recall_cacat": 0.9889624724061811,
+      "precision_cacat": 0.9933481152993349,
+      "f1": 0.9911504424778761,
+      "fpr": 0.015151515151515152,
+      "roc_auc": 0.9980377728722101,
+      "TP": 448,
+      "FP": 3,
+      "FN": 5,
+      "TN": 195,
+      "biaya_relatif": 53,
+      "parameter": 2259265
+    }
+  },
+  "ketahanan": {
+    "tanpa gangguan": {
+      "recall_cacat": 0.9955849889624724,
+      "fpr": 0.030303030303030304,
+      "f1": 0.9912087912087912,
+      "FN": 2,
+      "FP": 6
+    },
+    "lebih gelap 20%": {
+      "recall_cacat": 0.9955849889624724,
+      "fpr": 0.015151515151515152,
+      "f1": 0.9944873208379272,
+      "FN": 2,
+      "FP": 3
+    },
+    "lebih terang 20%": {
+      "recall_cacat": 0.9955849889624724,
+      "fpr": 0.005050505050505051,
+      "f1": 0.9966850828729282,
+      "FN": 2,
+      "FP": 1
+    },
+    "blur gaussian 5x5": {
+      "recall_cacat": 0.9977924944812362,
+      "fpr": 0.020202020202020204,
+      "f1": 0.9944994499449945,
+      "FN": 1,
+      "FP": 4
+    },
+    "rotasi 15 derajat": {
+      "recall_cacat": 0.9977924944812362,
+      "fpr": 0.030303030303030304,
+      "f1": 0.9923161361141603,
+      "FN": 1,
+      "FP": 6
+    }
+  }
+}
