@@ -122,8 +122,9 @@ with tab_pred:
             c1, c2, c3 = st.columns([1, 1, 1.2])
             c1.image(x[..., 0].astype("uint8"), caption=name, width="stretch")
             if show_cam:
-                cap = "Grad-CAM: area pemicu keputusan cacat" if reject else "Grad-CAM: area paling mirip pola cacat"
-                c2.image(overlay(x, gradcam(model, x)), caption=cap, width="stretch")
+                # heatmap dikali p: tiap citra dinormalisasi ke nilai maksnya sendiri, jadi tanpa ini produk baik tetap terlihat "panas"
+                cap = "Grad-CAM: area pemicu keputusan cacat" if reject else "Grad-CAM: tidak ada area yang kuat mengarah ke cacat"
+                c2.image(overlay(x, gradcam(model, x) * p), caption=cap, width="stretch")
             c3.metric("Probabilitas cacat", f"{p:.3f}")
             if reject:
                 c3.error(f"**TOLAK** — terindikasi cacat (p ≥ {tau:.2f})")
